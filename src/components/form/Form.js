@@ -13,18 +13,70 @@ class Form extends React.Component {
     try {
       const url = event.target.url.value;
       const method = event.target.method.value;
-      this.getData(url)
-      
+      const body = event.target.body.value;
+      switch (method) {
+        case "get":
+         
+          this.getData(url)
+          break;
+        case "post":
+          this.post(url, body)
+          break;
+        case "put":
+          this.put(url, body);
+          break;
+        case "delete":
+        this.delete(url,body);
+          break;
+        default:
+          break;
+      }
+
     } catch (error) {
-      
+      console.log({error});
     }
 
   }
   getData = async (url) => {
     try {
-      const raw = await fetch(url);
+      const raw = await fetch(url);     
       const result = await raw.json();
-      this.state.handler(result.results);
+      this.state.handler(result);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  post = async (url,body) => {
+    try {
+      const raw = await fetch(url,{
+        method: 'POST',
+        body: JSON.stringify(body)
+      });
+      const result = await raw.json();
+      this.state.handler(result);
+    } catch (error) {
+      //console.log(error);
+    }
+  }
+  put = async (url,body) => {
+    try {
+      const raw = await fetch(url,{
+        method: 'PUT',
+        body: JSON.stringify(body)
+      });
+      const result = await raw.json();
+      this.state.handler(result);
+    } catch (error) {
+      //console.log(error);
+    }
+  }
+  delete = async (url) => {
+    try {
+      const raw = await fetch(url,{
+        method: 'DELETE'
+      });
+      const result = await raw.json();
+      this.state.handler(result);
     } catch (error) {
       //console.log(error);
     }
@@ -33,7 +85,7 @@ class Form extends React.Component {
   render() {
     return (
       <>
-        <form onSubmit={this.formHandler}>
+        <form id="request-form" onSubmit={this.formHandler}>
           <label htmlFor="url">URL</label>
           <input type="text" name="url" />
           <input type="submit" value="Go" />
@@ -46,6 +98,10 @@ class Form extends React.Component {
           <input type="radio" name="method" value="put" />
           <label htmlFor="method">delete</label>
           <input type="radio" name="method" value="delete" />
+          <br />
+          <label htmlFor="body">Body</label>
+          <br />
+          <textarea className="body-input" name="body" form="request-form" />
         </form>
       </>
     );
