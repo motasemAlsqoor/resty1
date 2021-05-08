@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED } from "react-dom/cjs/react-dom.development";
 import "./History.scss";
 export default class History extends Component {
   state = {
@@ -17,15 +16,15 @@ export default class History extends Component {
   };
 
   render() {
-      if(!this.state.requests)return null;
+    if (!this.state.requests) return null;
     return (
-      <div class="main">
+      <div className="main">
         <h3>History</h3>
 
         <ul>
-          {this.state.requests.map((req) => {
+          {this.state.requests.map((req, i) => {
             return (
-              <li onClick={() => this.onOldQuery(req)}>
+              <li key={i} onClick={() => this.onOldQuery(req)}>
                 <span>{req.method}</span>
                 {"   "}
                 {req.url}

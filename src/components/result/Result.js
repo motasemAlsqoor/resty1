@@ -1,9 +1,9 @@
 import "./Result.scss";
 //conditional rendering
 //keeping calculation out of render method
-const renderResultOrLoading = (result,isLoading) => {
+const renderResultOrLoading = (result, isLoading) => {
   if (isLoading) {
-    return <div class="loader"></div>;
+    return <div className="loader"></div>;
   } else {
     return (
       <div className="json">
@@ -14,8 +14,8 @@ const renderResultOrLoading = (result,isLoading) => {
   }
 };
 const Result = ({ result, isLoading }) => {
-    if (result.length == 0) return null;
-    return renderResultOrLoading(result,isLoading);
+  if (result.length === 0) return null;
+  return renderResultOrLoading(result, isLoading);
 };
 
 export default Result;

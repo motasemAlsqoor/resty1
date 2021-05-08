@@ -109,7 +109,7 @@ class Form extends React.Component {
     //props or state
     let method;
     let { formMethodSpecifier } = this.props;
-    if (formMethodSpecifier == "props") {
+    if (formMethodSpecifier === "props") {
       method = this.props.oldQuery.method;
     } else {
       method = this.state.method;
@@ -130,7 +130,7 @@ class Form extends React.Component {
             type="radio"
             name="method"
             value="get"
-            checked={method == "get"}
+            checked={method === "get"}
             onChange={this.methodChangeHandler}
           />
           <label htmlFor="method">Post</label>
@@ -138,7 +138,7 @@ class Form extends React.Component {
             type="radio"
             name="method"
             value="post"
-            checked={method == "post"}
+            checked={method === "post"}
             onChange={this.methodChangeHandler}
           />
           <label htmlFor="method">Put</label>
@@ -146,7 +146,7 @@ class Form extends React.Component {
             type="radio"
             name="method"
             value="put"
-            checked={method == "put"}
+            checked={method ==="put"}
             onChange={this.methodChangeHandler}
           />
           <label htmlFor="method">delete</label>
@@ -154,7 +154,7 @@ class Form extends React.Component {
             type="radio"
             name="method"
             value="delete"
-            checked={method == "delete"}
+            checked={method === "delete"}
             onChange={this.methodChangeHandler}
           />
           <br />
