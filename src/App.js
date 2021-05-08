@@ -12,16 +12,22 @@ class App extends Component {
       result: [],
       oldQuery: {},
       formMethodSpecifier: "state",
+      isLoading: false,
     };
   }
+  toogleLoading = () => {
+    const isLoading = !this.state.isLoading;
+    this.setState({ isLoading });
+  };
   formHandler = (result) => {
+    this.toogleLoading();
     this.setState({ result });
   };
   oldQueryHandler = (oldQuery) => {
     this.setState({ oldQuery });
   };
   changeMethodSpecifier = (formMethodSpecifier) => {
-    this.setState({formMethodSpecifier});
+    this.setState({ formMethodSpecifier });
   };
   render() {
     return (
@@ -34,13 +40,14 @@ class App extends Component {
           oldQuery={this.state.oldQuery}
           onMethodSpecifierChange={this.changeMethodSpecifier}
           formMethodSpecifier={this.state.formMethodSpecifier}
+          toogleLoading={this.toogleLoading}
         />
         <div className="main-container">
-        <History
-          onOldQuery={this.oldQueryHandler}
-          onMethodSpecifierChange={this.changeMethodSpecifier}
-        />
-        <Result result={this.state.result} />
+          <History
+            onOldQuery={this.oldQueryHandler}
+            onMethodSpecifierChange={this.changeMethodSpecifier}
+          />
+          <Result result={this.state.result} isLoading={this.state.isLoading} />
         </div>
         <Footer />
       </div>

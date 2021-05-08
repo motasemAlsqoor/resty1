@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-
+import { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED } from "react-dom/cjs/react-dom.development";
+import "./History.scss";
 export default class History extends Component {
   state = {
     requests: [],
@@ -14,12 +15,13 @@ export default class History extends Component {
     this.props.onOldQuery(req);
     this.props.onMethodSpecifierChange("props");
   };
-  
 
   render() {
+      if(!this.state.requests)return null;
     return (
-      <>
-        History
+      <div class="main">
+        <h3>History</h3>
+
         <ul>
           {this.state.requests.map((req) => {
             return (
@@ -31,7 +33,7 @@ export default class History extends Component {
             );
           })}
         </ul>
-      </>
+      </div>
     );
   }
 }

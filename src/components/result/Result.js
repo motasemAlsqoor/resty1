@@ -1,15 +1,21 @@
 import "./Result.scss";
-//conditional rendering 
+//conditional rendering
 //keeping calculation out of render method
-const renderResult = (result) => {
-    if(result.length==0) return null;
-    return  (
-        <div className="json">
-            Result
-            <pre>{JSON.stringify(result, null, 4)}</pre>
-        </div>
+const renderResultOrLoading = (result,isLoading) => {
+  if (isLoading) {
+    return <div class="loader"></div>;
+  } else {
+    return (
+      <div className="json">
+        <h3>Result</h3>
+        <pre>{JSON.stringify(result, null, 4)}</pre>
+      </div>
     );
   }
-const Result = ({ result })=>renderResult(result);
+};
+const Result = ({ result, isLoading }) => {
+    if (result.length == 0) return null;
+    return renderResultOrLoading(result,isLoading);
+};
 
 export default Result;

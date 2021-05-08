@@ -10,6 +10,7 @@ class Form extends React.Component {
   }
   formHandler = (event) => {
     event.preventDefault();
+    this.props.toogleLoading();
     try {
       const url = event.target.url.value;
       const method = event.target.method.value;
