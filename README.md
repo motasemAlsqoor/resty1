@@ -2,7 +2,7 @@
 
 ## deployed link
 
-https://app.netlify.com/sites/vigilant-heisenberg-a6b9df/deploys/6096ecfe81fbf50009723378
+https://6096ecfe81fbf50009723378--vigilant-heisenberg-a6b9df.netlify.app/
 
 ## uml
 
