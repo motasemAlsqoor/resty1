@@ -2,9 +2,11 @@ import "./Result.scss";
 //conditional rendering
 //keeping calculation out of render method
 const renderResultOrLoading = (result, isLoading) => {
+    
   if (isLoading) {
     return <div className="loader"></div>;
   } else {
+    console.log(result);
     return (
       <div className="json">
         <h3>Result</h3>
@@ -15,6 +17,7 @@ const renderResultOrLoading = (result, isLoading) => {
 };
 const Result = ({ result, isLoading }) => {
   if (result.length === 0) return null;
+  
   return renderResultOrLoading(result, isLoading);
 };
 
