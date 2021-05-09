@@ -1,9 +1,10 @@
-import './Header.scss'
-function Header() {
+import "./Header.scss";
+function Header(props) {
   return (
-      <header >
-          RESTy
-      </header>
+    <>
+      <div className="header">Resty</div>
+      {props.children}
+    </>
   );
 }
 export default Header;

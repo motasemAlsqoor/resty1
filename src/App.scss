@@ -1,8 +1,18 @@
-
-.main-container{
+nav {
+  ul {
     display: flex;
     flex-direction: row;
-    margin: 30px;
-    
+    list-style: none;
+    background-color: #ca5858;
+    margin: 0;
+    li {
+      margin: 16px;
+      font-size: 3vh;
+      a{
+          text-decoration: none;
+          color: white;
+      }
+     
+    }
+  }
 }
-

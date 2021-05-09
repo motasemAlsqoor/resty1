@@ -11,7 +11,7 @@ export default class History extends Component {
   onOldQuery = (req) => {
     // at this point the form component should
     //be populated with this request object
-    this.props.onOldQuery(req);
+    this.props.onItemClick(req);
     this.props.onMethodSpecifierChange("props");
   };
 
